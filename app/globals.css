@@ -3,31 +3,61 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --dark: #121212; /* Dark Background */
+  --white: #ffffff; /* White Text */
+  --dodger-blue: #3498db; /* Dodger Blue Accent */
+  --medium-dark: #282828; /* Dark Button Background */
+  --light-gray: #333333; /* Dark Border */
+  --ruby: #e74c3c; /* Ruby Red */
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--dark);
+  color: var(--white);
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.button {
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+  transition: opacity 0.3s ease;
+  font-weight: bold;
+}
+
+.button:hover {
+  opacity: 0.7;
+}
+
+.button.regular {
+  background-color: var(--dodger-blue);
+  color: var(--white);
+}
+
+.button.alert {
+  background-color: var(--ruby);
+  color: var(--white);
+}
+
+.input {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--light-gray);
+  color: var(--light-gray);
+}
+
+.input[type="range"] {
+  width: 100%;
+  padding: 0;
+  cursor: pointer;
+  border: 0;
+}
+
+.input.select {
+  cursor: pointer;
 }

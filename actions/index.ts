@@ -17,7 +17,7 @@ export const fetchDataClient = async ({
   page?: number;
   limit?: number;
 }) => {
-  const pageStr = (page + 1).toString();
+  const pageStr = page.toString();
   const limitStr = limit.toString();
   const data = await fetchData(region, numErrors, seed, pageStr, limitStr);
   return data;

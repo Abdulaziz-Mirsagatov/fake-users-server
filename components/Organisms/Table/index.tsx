@@ -20,6 +20,7 @@ const Table = <T extends Record<string, any>>({
 
   useEffect(() => {
     setData(initialData);
+    setPage(1);
   }, [initialData]);
 
   const loadMoreData = async () => {

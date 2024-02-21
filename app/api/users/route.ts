@@ -26,7 +26,7 @@ export async function GET(request: UsersRequest) {
     region as REGIONS
   );
 
-  return new Response(JSON.stringify(randomData), {
+  return new Response(JSON.stringify(randomDataWithErrors), {
     headers: {
       "Content-Type": "application/json",
     },

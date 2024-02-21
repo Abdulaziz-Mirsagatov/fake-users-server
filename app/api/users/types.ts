@@ -6,6 +6,8 @@ export interface UsersRequest extends NextRequest {
     region: REGIONS;
     numErrors: string;
     seed: string;
+    page: string;
+    limit: string;
   };
 }
 

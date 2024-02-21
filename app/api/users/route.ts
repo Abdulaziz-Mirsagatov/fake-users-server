@@ -1,7 +1,7 @@
+import generateFakeData from "@/utils/generateFakeData";
 import { UsersRequest } from "./types";
-import { generateFakeData } from "@/utils/generateFakeData";
-import { addErrors } from "@/utils/addErrors";
 import { REGIONS } from "@/constants";
+import addErrors from "@/utils/addErrors";
 
 export const dynamic = "force-dynamic"; // defaults to auto
 
@@ -10,14 +10,18 @@ export async function GET(request: UsersRequest) {
   const region = searchParams.get("region");
   const numErrors = Number(searchParams.get("numErrors"));
   const seed = Number(searchParams.get("seed"));
+  const page = Number(searchParams.get("page"));
+  const limit = Number(searchParams.get("limit"));
 
-  const randomData = generateFakeData(20, region as REGIONS, seed);
+  const pageSeed = page + seed;
+
+  const randomData = generateFakeData(limit, region as REGIONS, pageSeed);
 
   const fields = ["name", "address", "phone"];
   const randomDataWithErrors = addErrors(
     randomData,
     numErrors,
-    seed,
+    pageSeed,
     fields,
     region as REGIONS
   );

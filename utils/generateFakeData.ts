@@ -7,11 +7,11 @@ import { RandomData } from "@/app/api/users/types";
 
 export const dynamic = "force-dynamic"; // defaults to auto
 
-export const generateFakeData = (
+export default function generateFakeData(
   amount: number,
   region: REGIONS,
   seed: number
-) => {
+) {
   fakerEn.seed(seed);
   fakerRu.seed(seed);
   fakerDe.seed(seed);
@@ -57,4 +57,4 @@ export const generateFakeData = (
   }
 
   return randomData;
-};
+}

@@ -1,4 +1,8 @@
-export const swapCharsInStr = (str: string, pos1: number, pos2: number) => {
+export default function swapCharsInStr(
+  str: string,
+  pos1: number,
+  pos2: number
+) {
   const char1 = str[pos1];
   const char2 = str[pos2];
   return (
@@ -8,4 +12,4 @@ export const swapCharsInStr = (str: string, pos1: number, pos2: number) => {
     char1 +
     str.slice(pos2 + 1)
   );
-};
+}

@@ -1,22 +1,22 @@
 import { RandomData } from "@/app/api/users/types";
 import { MersenneTwister19937, Random } from "random-js";
-import { removeCharFromStr } from "./removeCharFromStr";
 
 import { faker as fakerEn } from "@faker-js/faker/locale/en_US";
 import { faker as fakerRu } from "@faker-js/faker/locale/ru";
 import { faker as fakerDe } from "@faker-js/faker/locale/de";
 import { Faker } from "@faker-js/faker";
-import { addCharToStr } from "./addCharToStr";
 import { REGIONS } from "@/constants";
-import { swapCharsInStr } from "./swapCharsInStr";
+import removeCharFromStr from "./removeCharFromStr";
+import addCharToStr from "./addCharToStr";
+import swapCharsInStr from "./swapCharsInStr";
 
-export const addErrors = (
+export default function addErrors(
   data: RandomData[],
   numErrors: number,
   seed: number,
   fields: string[],
   region: REGIONS
-) => {
+) {
   for (let i = 0; i < numErrors; i++) {
     // different seed for each error
     let random = new Random(MersenneTwister19937.seed(seed + i));
@@ -86,4 +86,4 @@ export const addErrors = (
   }
 
   return data;
-};
+}

@@ -14,4 +14,5 @@ export interface RandomData {
   name: string;
   address: string;
   phone: string;
+  [key: string]: string;
 }

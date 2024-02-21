@@ -27,7 +27,15 @@ const TableContainer = async ({
     { label: "Phone", key: "phone" },
   ];
 
-  return <Table headers={headers} initialData={data} />;
+  return (
+    <Table
+      headers={headers}
+      initialData={data}
+      region={region as REGIONS}
+      numErrors={numErrors}
+      seed={seed}
+    />
+  );
 };
 
 export default TableContainer;
